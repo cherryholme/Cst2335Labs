@@ -4,7 +4,8 @@
     <string name ="hello_message">Salut tout le monde!</string>
     <string name="ButtonText">Je suis un bouton</string>
     <string name="app_name">AndroidLabs</string>
-    <string name="Login"> S\'identifier </string>
+    <string name="Login"> S\'e Connecter</string>
     <string name="radiobutton">Bouton Radio</string>
     <string name="switchbutton">Ques que sa fais?</string>
+
 </resources>
