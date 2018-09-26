@@ -13,10 +13,5 @@ public class ListItemsActivity extends Activity {
         setContentView(R.layout.activity_list_items);
     }
 
-    public void onCheckBoxClicked(View view){
-        System.out.println("HELLO WORLD");
-        Intent intent = new Intent(this, LoginActivity.class);
-        // intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }
+
 }
