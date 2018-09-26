@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name ="hello_message">Salut tout le monde!</string>
+    <string name="ButtonText">Je suis un bouton</string>
+    <string name="app_name">AndroidLabs</string>
+    <string name="Login"> S\'identifier </string>
+    <string name="radiobutton">Bouton Radio</string>
+    <string name="switchbutton">Ques que sa fais?</string>
+</resources>
