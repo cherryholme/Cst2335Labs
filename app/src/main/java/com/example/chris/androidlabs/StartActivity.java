@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class StartActivity extends Activity {
@@ -38,8 +39,12 @@ public class StartActivity extends Activity {
     }
 
     protected void onActivityResult(int requestCode, int responseCode, Intent data) {
-        if (requestCode == 50) {
-            Log.i(ACTIVITY_NAME, "Returned to StartActivity.onActivityResul");
+        if (requestCode == 50 && responseCode == Activity.RESULT_OK) {
+            Log.i(ACTIVITY_NAME, "Returned to StartActivity.onActivityResult");
+            String messagePassed = data.getStringExtra("Response");
+
+            Toast toast = Toast.makeText(getApplicationContext(), messagePassed, Toast.LENGTH_LONG);
+            toast.show();
         }
     }
 
