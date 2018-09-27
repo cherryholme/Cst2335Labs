@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="myPrefs">myPrefs</string>
+    <string name="emailAddressKey">emailAddressKey</string>
 
     <string name ="hello_message">Salut tout le monde!</string>
     <string name="ButtonText">Je suis un bouton</string>
@@ -7,5 +9,6 @@
     <string name="Login"> S\'e Connecter</string>
     <string name="radiobutton">Bouton Radio</string>
     <string name="switchbutton">Ques que sa fais?</string>
+
 
 </resources>

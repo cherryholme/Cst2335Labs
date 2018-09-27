@@ -6,14 +6,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class LoginActivity extends Activity {
 
     protected static final String ACTIVITY_NAME = "LoginActivity";
 
     private Button btnLogin;
-    private String emailAddress;
+    private EditText edTEmailAddress;
 
 
     @Override
@@ -21,14 +24,36 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Log.i(ACTIVITY_NAME, "onCreate()");
+
         btnLogin = findViewById(R.id.btnLogin);
-        SharedPreferences prefs = getSharedPreferences(emailAddress, MODE_PRIVATE);
-        String emailAddress = prefs.getString("DefaultEmail", "email@domain.com");
+        edTEmailAddress = findViewById(R.id.edTEmailAddress);
+
+        final SharedPreferences sharedPref = this.getSharedPreferences(
+                getString(R.string.myPrefs), Context.MODE_PRIVATE);
+        if (edTEmailAddress != null) {
+            edTEmailAddress.setText(sharedPref.getString(getString(R.string.emailAddressKey), "chrischerryholme@gmail.com"));
+        }
 
 
-        Intent intent = new Intent(LoginActivity.this, StartActivity.class);
-        startActivity(intent);
+        if (btnLogin != null) {
+            btnLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (edTEmailAddress != null) {
+                        String emailAddress = edTEmailAddress.getText().toString();
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString(getString(R.string.emailAddressKey), emailAddress);
+                        editor.apply();
+                        Intent intent = new Intent(LoginActivity.this, StartActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            });
+        }
+
+
     }
+
 
     @Override
     protected void onResume() {
