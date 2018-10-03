@@ -15,8 +15,7 @@
     <string name="textOn">Switch is on</string>
     <string name="textOff">Switch is off</string>
     <string name="response">ListItemsActivity passed: My information to share</string>
-
-
+    <string name="StartButton">Start</string>
 
 
 </resources>

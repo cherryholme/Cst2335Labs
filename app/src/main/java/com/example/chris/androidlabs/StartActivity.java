@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class StartActivity extends Activity {
 
     private Button btnButton;
+    private Button startButton;
 
     protected static final String ACTIVITY_NAME = "StartActivity";
 
@@ -33,6 +34,13 @@ public class StartActivity extends Activity {
             }
 
 
+        });
+        startButton = findViewById(R.id.startButton);
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(ACTIVITY_NAME, "User clicked start");
+            }
         });
 
 
