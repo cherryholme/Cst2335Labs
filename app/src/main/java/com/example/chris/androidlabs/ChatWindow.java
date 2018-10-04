@@ -2,47 +2,47 @@ package com.example.chris.androidlabs;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ChatWindow extends Activity {
-    Context ctx = this;
+
     private Button chatSend;
     private ListView chatArray;
     private EditText chat;
-    ListView myList = (ListView) findViewById(R.id.chatListView);
+    ArrayList<String> myList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_window);
-        chatSend = findViewById(R.id.SendButton);
-        chatArray = findViewById(R.id.chatListView);
-        chat = findViewById(R.id.Chat);
-        final List<String> chatlist = new ArrayList<>();
+        chatSend = (Button) findViewById(R.id.SendButton);
+        chatArray = (ListView) findViewById(R.id.chatListView);
+        chat = (EditText) findViewById(R.id.Chat);
+        final ChatAdapter messageAdapter = new ChatAdapter(this);
+        chatArray.setAdapter(messageAdapter);
 
         chatSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String getInput = chat.getText().toString();
-                chatlist.add(getInput);
-
+                myList.add(chat.getText().toString());
+                messageAdapter.notifyDataSetChanged();
+                chat.setText("");
 
             }
         });
     }
 
-    private class MyListAdapter extends BaseAdapter<String> {
+    private class ChatAdapter extends ArrayAdapter<String> {
 
         public ChatAdapter(Context ctx) {
 
@@ -50,7 +50,34 @@ public class ChatWindow extends Activity {
 
         }
 
+        public int getCount() {
+            return myList.size();
+        }
 
+        public String getItem(int position) {
+            return myList.get(position);
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater = ChatWindow.this.getLayoutInflater();
+            View result = null;
+            if (position % 2 == 0) {
+                result = inflater.inflate(R.layout.chat_row_incoming, null);
+
+            } else {
+                result = inflater.inflate(R.layout.chat_row_outgoing, null);
+
+            }
+            TextView message = (TextView) result.findViewById(R.id.message_text);
+            message.setText(getItem(position));
+            return result;
+
+
+        }
+
+        public long getItemId(int position) {
+            return position;
+        }
     }
 
 

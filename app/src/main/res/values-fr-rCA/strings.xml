@@ -17,7 +17,10 @@
     <string name="textOff">l\'interrupteur est éteint</string>
     <string name="response">ListItemsActivity a passé: Mes informations à partager</string>
     <string name="StartButton">Commencer</string>
+    <string name="SendButton">Envoyer</string>
+    <string name="CheckBox">Case à cocher</string>
 
 
 
-    </resources>
+
+</resources>
