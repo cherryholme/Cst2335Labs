@@ -13,6 +13,7 @@ public class StartActivity extends Activity {
 
     private Button btnButton;
     private Button startButton;
+    private Button wthBtn;
 
     protected static final String ACTIVITY_NAME = "StartActivity";
 
@@ -44,7 +45,15 @@ public class StartActivity extends Activity {
                 startActivity(intent);
             }
         });
-
+wthBtn = findViewById(R.id.weatherButton);
+wthBtn.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Log.i(ACTIVITY_NAME, "User clicked Weather Forecast");
+        Intent intent = new Intent(StartActivity.this,WeatherForeCast.class);
+        startActivity(intent);
+    }
+});
 
     }
 

@@ -20,12 +20,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
+        android:backgroundTint="@color/colorPrimary"
         android:text="@string/ButtonText" />
 
     <Button
         android:id="@+id/startButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
         android:text="@string/StartButton" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/weatherButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="Start Weather" />
+
+    </LinearLayout>
