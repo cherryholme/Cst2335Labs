@@ -27,7 +27,6 @@ public class LoginActivity extends Activity {
 
         btnLogin = findViewById(R.id.btnLogin);
         edTEmailAddress = findViewById(R.id.edTEmailAddress);
-
         final SharedPreferences sharedPref = this.getSharedPreferences(
                 getString(R.string.myPrefs), Context.MODE_PRIVATE);
         if (edTEmailAddress != null) {

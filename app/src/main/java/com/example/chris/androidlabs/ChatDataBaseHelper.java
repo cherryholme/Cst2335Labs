@@ -35,7 +35,8 @@ public class ChatDataBaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
+    {
         db.execSQL("DROP TABLE IF EXISTS " + TEXT_MESSAGE_TABLE);
         onCreate(db);
         Log.i(ACTIVITY_NAME, "Calling onUpgrade, Old version = " + oldVersion + " New version = " + newVersion);
