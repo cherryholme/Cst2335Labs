@@ -14,6 +14,7 @@ public class StartActivity extends Activity {
     private Button btnButton;
     private Button startButton;
     private Button wthBtn;
+    private Button testtoolbar;
 
     protected static final String ACTIVITY_NAME = "StartActivity";
 
@@ -51,6 +52,15 @@ wthBtn.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
         Log.i(ACTIVITY_NAME, "User clicked Weather Forecast");
         Intent intent = new Intent(StartActivity.this,WeatherForeCast.class);
+        startActivity(intent);
+    }
+});
+testtoolbar = findViewById(R.id.test_toolbar_btn);
+testtoolbar.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Log.i(ACTIVITY_NAME, "User clicked test toolbar");
+        Intent intent = new Intent(StartActivity.this,TestToolBar.class);
         startActivity(intent);
     }
 });
